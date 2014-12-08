@@ -1,7 +1,5 @@
 db:
     image: maxexcloo/redis
-    ports: 
-        - "10.0.0.20:6379:6379"
     volumes:
         - ./db:/data
     expose:
@@ -13,10 +11,10 @@ server:
     image: maxexcloo/arma3-epoch
     hostname: arma3
     ports:
-        - "10.0.0.20:2342:2302/udp"
-        - "10.0.0.20:2343:2303/udp"
-        - "10.0.0.20:2344:2304/udp"
-        - "10.0.0.20:2346:2306/udp"
+        - "2342:2302/udp"
+        - "2343:2303/udp"
+        - "2344:2304/udp"
+        - "2346:2306/udp"
     volumes:
         - ./data:/data
         - ../arma3-server-files/:/opt/arma3

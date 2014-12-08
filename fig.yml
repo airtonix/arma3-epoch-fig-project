@@ -1,0 +1,31 @@
+db:
+    image: maxexcloo/redis
+    ports: 
+        - "10.0.0.20:6379:6379"
+    volumes:
+        - ./db:/data
+    expose:
+        - "6379"
+    environment:
+        REDIS_DB: 0
+
+server:
+    image: maxexcloo/arma3-epoch
+    hostname: arma3
+    ports:
+        - "10.0.0.20:2342:2302/udp"
+        - "10.0.0.20:2343:2303/udp"
+        - "10.0.0.20:2344:2304/udp"
+        - "10.0.0.20:2346:2306/udp"
+    volumes:
+        - ./data:/data
+        - ../arma3-server-files/:/opt/arma3
+    links:
+        - db
+    environment:
+        STEAM_USER: YOUR_STEAM_USERNAME
+        STEAM_PASS: YOUR_STEAM_PASSWORD
+        ARMA3_SERVER_PORT: 2342
+        ARMA3_SERVER_NAME: YOUR_EPOCH_SERVERNAME
+        ARMA3_MODLIST: "@epoch;@epochhive;"
+        EPOCH_INSTANCEID: YOUR_EPOCH_INSTANCEID

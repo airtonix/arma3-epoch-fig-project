@@ -34,3 +34,11 @@ $ docker build -t maxexcloo/arma3-epoch ./dockerfiles/services/arma3-epoch
 $ cd ./arma3-epoch
 $ fig up
 ```
+
+
+## Changelog
+
+0.0.1
+-----
+
+ - initial release
